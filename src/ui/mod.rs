@@ -16,6 +16,7 @@ use crate::config::{ColumnVisibility, SortConfig};
 use crate::model::{ComposeProject, ViewMode};
 
 /// Render the entire UI.
+#[allow(clippy::too_many_arguments)]
 pub fn render(
     frame: &mut Frame,
     projects: &[ComposeProject],

@@ -80,19 +80,6 @@ impl SortColumn {
             Self::ALL[idx - 1]
         }
     }
-
-    pub fn label(&self) -> &'static str {
-        match self {
-            SortColumn::Name => "PROJECT",
-            SortColumn::Ctrs => "CTRS",
-            SortColumn::Cpu => "CPU",
-            SortColumn::Mem => "MEM",
-            SortColumn::NetRx => "NET",
-            SortColumn::IoRead => "IO",
-            SortColumn::TimeUp => "TIME-UP",
-            SortColumn::LastChg => "LAST-CHG",
-        }
-    }
 }
 
 /// Sort configuration.

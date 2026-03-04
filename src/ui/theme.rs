@@ -39,14 +39,6 @@ pub fn style_selected() -> Style {
         .add_modifier(Modifier::BOLD)
 }
 
-pub fn style_normal() -> Style {
-    Style::default()
-}
-
-pub fn style_muted() -> Style {
-    Style::default().fg(MUTED)
-}
-
 pub fn style_status(running: bool, partial: bool, dead: bool) -> Style {
     if dead {
         Style::default().fg(DANGER)
@@ -85,9 +77,7 @@ pub fn style_mem(percent: f64) -> Style {
 pub fn status_icon(running: bool, partial: bool, dead: bool) -> &'static str {
     if dead {
         ICON_DEAD
-    } else if partial {
-        ICON_RUNNING // yellow dot handled by caller
-    } else if running {
+    } else if partial || running {
         ICON_RUNNING
     } else {
         ICON_STOPPED

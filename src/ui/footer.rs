@@ -29,7 +29,7 @@ pub fn render(frame: &mut Frame, area: Rect, show_help: bool) {
             spans.push(Span::styled("  ", Style::default().fg(MUTED)));
         }
         spans.push(Span::styled(
-            format!("{}", key),
+            key.to_string(),
             Style::default().fg(PRIMARY).add_modifier(Modifier::BOLD),
         ));
         spans.push(Span::styled(

@@ -8,7 +8,7 @@ pub enum AppEvent {
     /// A keyboard event from the terminal.
     Key(KeyEvent),
     /// Terminal resize.
-    Resize(u16, u16),
+    Resize,
     /// Render tick (~30fps).
     Tick,
     /// Fresh Docker data arrived.

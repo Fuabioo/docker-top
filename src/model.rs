@@ -15,6 +15,7 @@ pub enum ProjectStatus {
 
 /// Per-container snapshot of stats at a point in time.
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct ContainerSnapshot {
     pub id: String,
     pub name: String,
@@ -33,6 +34,7 @@ pub struct ContainerSnapshot {
 
 /// Aggregated view of a Docker Compose project.
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct ComposeProject {
     pub name: String,
     pub working_dir: String,

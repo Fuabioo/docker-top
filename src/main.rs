@@ -92,8 +92,8 @@ fn input_reader(tx: mpsc::Sender<AppEvent>, running: Arc<AtomicBool>) {
                         return;
                     }
                 }
-                Ok(Event::Resize(w, h)) => {
-                    if tx.blocking_send(AppEvent::Resize(w, h)).is_err() {
+                Ok(Event::Resize(_, _)) => {
+                    if tx.blocking_send(AppEvent::Resize).is_err() {
                         return;
                     }
                 }

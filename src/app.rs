@@ -90,7 +90,7 @@ impl App {
                 self.handle_key(key);
                 self.dirty = true;
             }
-            AppEvent::Resize(_, _) => {
+            AppEvent::Resize => {
                 self.dirty = true;
             }
             AppEvent::Tick => {
