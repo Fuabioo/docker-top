@@ -5,8 +5,8 @@ use ratatui::{
     Frame,
 };
 
-use crate::model::ComposeProject;
 use super::theme;
+use crate::model::ComposeProject;
 
 pub fn render(frame: &mut Frame, area: Rect, projects: &[ComposeProject]) {
     let direction = if area.width >= 100 {

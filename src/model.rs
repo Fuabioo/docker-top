@@ -54,7 +54,11 @@ pub struct ComposeProject {
 
 impl ComposeProject {
     /// Build a ComposeProject from a set of containers, computing aggregates.
-    pub fn aggregate(name: String, working_dir: String, containers: Vec<ContainerSnapshot>) -> Self {
+    pub fn aggregate(
+        name: String,
+        working_dir: String,
+        containers: Vec<ContainerSnapshot>,
+    ) -> Self {
         let total_cpu: f64 = containers.iter().map(|c| c.cpu_percent).sum();
         let total_mem: u64 = containers.iter().map(|c| c.mem_bytes).sum();
         // If all containers share the same limit (host RAM, no cgroup limit), use that value.
@@ -81,10 +85,8 @@ impl ComposeProject {
 
         let oldest_started_at = running_starts.iter().min().copied();
 
-        let all_starts: Vec<DateTime<Utc>> = containers
-            .iter()
-            .filter_map(|c| c.started_at)
-            .collect();
+        let all_starts: Vec<DateTime<Utc>> =
+            containers.iter().filter_map(|c| c.started_at).collect();
 
         let newest_started_at = all_starts.iter().max().copied();
 
@@ -112,9 +114,9 @@ impl ComposeProject {
             return ProjectStatus::Stopped;
         }
 
-        let has_dead = containers.iter().any(|c| {
-            c.status.contains("dead") || c.status.contains("Dead")
-        });
+        let has_dead = containers
+            .iter()
+            .any(|c| c.status.contains("dead") || c.status.contains("Dead"));
         if has_dead {
             return ProjectStatus::Dead;
         }

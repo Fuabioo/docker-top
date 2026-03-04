@@ -37,10 +37,7 @@ pub fn render(
         .style(theme::style_header())
         .height(1);
 
-    let rows: Vec<Row> = projects
-        .iter()
-        .map(|p| build_row(p, columns))
-        .collect();
+    let rows: Vec<Row> = projects.iter().map(|p| build_row(p, columns)).collect();
 
     let widths = build_widths(columns);
 

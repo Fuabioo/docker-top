@@ -62,9 +62,7 @@ pub fn style_status(running: bool, partial: bool, dead: bool) -> Style {
 /// Color-coded style for CPU percentage.
 pub fn style_cpu(percent: f64) -> Style {
     if percent > 80.0 {
-        Style::default()
-            .fg(DANGER)
-            .add_modifier(Modifier::BOLD)
+        Style::default().fg(DANGER).add_modifier(Modifier::BOLD)
     } else if percent > 50.0 {
         Style::default().fg(WARNING)
     } else {
@@ -75,9 +73,7 @@ pub fn style_cpu(percent: f64) -> Style {
 /// Color-coded style for memory usage percentage.
 pub fn style_mem(percent: f64) -> Style {
     if percent > 90.0 {
-        Style::default()
-            .fg(DANGER)
-            .add_modifier(Modifier::BOLD)
+        Style::default().fg(DANGER).add_modifier(Modifier::BOLD)
     } else if percent > 70.0 {
         Style::default().fg(WARNING)
     } else {

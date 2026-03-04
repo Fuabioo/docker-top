@@ -32,12 +32,12 @@ pub fn render(
     let constraints = if hide_footer {
         vec![
             Constraint::Length(1), // header
-            Constraint::Min(5),   // main content
+            Constraint::Min(5),    // main content
         ]
     } else {
         vec![
             Constraint::Length(1), // header
-            Constraint::Min(5),   // main content
+            Constraint::Min(5),    // main content
             Constraint::Length(1), // footer
         ]
     };

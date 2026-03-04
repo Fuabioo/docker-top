@@ -35,8 +35,12 @@ pub fn connect() -> Result<Docker> {
 }
 
 /// Recover from a poisoned mutex rather than panicking.
-fn lock_cache(cache: &Mutex<Option<Vec<ContainerInfo>>>) -> std::sync::MutexGuard<'_, Option<Vec<ContainerInfo>>> {
-    cache.lock().unwrap_or_else(|poisoned| poisoned.into_inner())
+fn lock_cache(
+    cache: &Mutex<Option<Vec<ContainerInfo>>>,
+) -> std::sync::MutexGuard<'_, Option<Vec<ContainerInfo>>> {
+    cache
+        .lock()
+        .unwrap_or_else(|poisoned| poisoned.into_inner())
 }
 
 /// Fetch compose projects. If `relist` is true, re-queries the container list.

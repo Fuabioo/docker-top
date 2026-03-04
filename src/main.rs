@@ -159,9 +159,7 @@ async fn docker_poller(tx: mpsc::Sender<AppEvent>) {
                 }
                 Err(e) => {
                     tracing::warn!("Docker poll error: {}", e);
-                    let _ = tx
-                        .send(AppEvent::DockerError(format!("{}", e)))
-                        .await;
+                    let _ = tx.send(AppEvent::DockerError(format!("{}", e))).await;
                     break;
                 }
             }
