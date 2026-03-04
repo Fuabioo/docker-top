@@ -17,7 +17,7 @@ pub fn render(frame: &mut Frame, area: Rect, connected: bool, last_poll_secs: u6
     );
 
     let title = Span::styled(
-        "docker-status  ",
+        "docker-top  ",
         ratatui::style::Style::default()
             .fg(PRIMARY)
             .add_modifier(Modifier::BOLD),

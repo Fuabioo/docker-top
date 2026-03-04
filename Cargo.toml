@@ -1,5 +1,5 @@
 [package]
-name = "docker-status"
+name = "docker-top"
 version = "0.1.0"
 edition = "2021"
 description = "A TUI for monitoring Docker Compose projects"

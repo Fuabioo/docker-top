@@ -277,7 +277,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "docker-status"
+name = "docker-top"
 version = "0.1.0"
 dependencies = [
  "anyhow",
