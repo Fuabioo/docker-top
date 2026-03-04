@@ -53,19 +53,15 @@ archives:
       - README.md
       - LICENSE*
 
-brews:
+homebrew_casks:
   - repository:
       owner: Fuabioo
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
-    directory: Formula
+    directory: Casks
     homepage: "https://github.com/Fuabioo/docker-top"
     description: "docker-top - A TUI for monitoring Docker Compose projects."
     license: "MIT"
-    test: |
-      system "#{bin}/docker-top --version"
-    install: |
-      bin.install "docker-top"
 
 checksum:
   name_template: "checksums.txt"
