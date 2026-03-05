@@ -20,6 +20,16 @@ use event::AppEvent;
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    if std::env::args().any(|a| a == "--version" || a == "-V") {
+        println!(
+            "docker-top {} ({} {})",
+            env!("GIT_VERSION"),
+            env!("GIT_COMMIT"),
+            env!("GIT_DATE"),
+        );
+        return Ok(());
+    }
+
     // File-based logging (TUI owns stdout)
     let file_appender = rolling::never(".", "docker-top.log");
     let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
