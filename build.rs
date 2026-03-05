@@ -11,8 +11,9 @@ fn git(args: &[&str]) -> String {
 }
 
 fn main() {
-    // Re-run if git HEAD changes (new commits, branch switches, tags)
+    // Re-run on any git state change (commits, branch switches, tags)
     println!("cargo:rerun-if-changed=.git/HEAD");
+    println!("cargo:rerun-if-changed=.git/refs");
 
     let commit = git(&["rev-parse", "--short", "HEAD"]);
     let date = git(&["log", "-1", "--format=%ci"]);
